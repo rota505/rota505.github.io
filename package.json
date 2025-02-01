@@ -10,5 +10,6 @@
   },
   "dependencies": {
     "astro": "^5.2.3"
-  }
+  },
+  "homepage": "https://rota505.github.io/"
 }
