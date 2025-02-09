@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import MDLayout from '../../layouts/MDLayout.astro';
+
+// すべての記事を取得
+const articles = await getCollection('articles');
+
+// getStaticPaths() で Astro に生成するページを伝える
+export async function getStaticPaths() {
+  const articles = await Astro.glob('../../content/articles/*.md');
+  return articles.map(article => ({
+    params: { slug: article.frontmatter.slug },
+    props: {article},
+  }));
+}
+
+const { Content } = Astro.props.article;
+const { frontmatter } = Astro.props.article;
+---
+
+<MDLayout>
+  <h1 class="text-2xl">{frontmatter.title}</h1>
+  <Content/>
+</MDLayout>
