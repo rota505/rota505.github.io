@@ -1,5 +1,4 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Navigation from '../components/Navigation.astro';
 import "../styles/global.css";
 ---
@@ -12,6 +11,8 @@ import "../styles/global.css";
 	</head>
 	<body>
 		<Navigation />
-		  <slot />
+	  <div class="flex justify-between">
+		<slot />
+	  </div>
 	</body>
 </html>

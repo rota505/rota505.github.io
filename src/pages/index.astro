@@ -1,9 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+
+const tagMap = new Map();
+articles.forEach(article => {
+  const tag = article.data.tag; // 単体のタグを使用
+  if (tag) {
+    if (!tagMap.has(tag)) {
+      tagMap.set(tag, []);
+    }
+    tagMap.get(tag).push(article);
+  }
+});
+
 ---
 
 <Layout>
-	<h1 class="text-3xl font-bold underline">
-		TEST
-	</h1>
+	<div class="grid grid-cols-2 gap-4 w-full max-w-2xl mx-auto">
+		{Array.from(tagMap.entries()).map(([tag, articles]) => (
+			<div class="bg-gray-800 p-4 rounded-lg">
+			  <h2 class="text-lg font-semibold text-blue-400">{tag}</h2>
+			  <ul class="mt-2">
+				{articles.map(article => (
+				  <li>
+					<a href={`/posts/${article.slug}/`} class="text-white hover:underline">
+					  {article.data.title}
+					</a>
+				  </li>
+				))}
+			  </ul>
+			</div>
+		  ))}
+	</div>
 </Layout>
