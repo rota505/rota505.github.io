@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import MDLayout from '../../layouts/MDLayout.astro';
+import "../../styles/global.css";
 
 // すべての記事を取得
 const articles = await getCollection('articles');
