@@ -20,12 +20,12 @@ articles.forEach(article => {
 <Layout>
 	<div class="grid grid-cols-2 gap-4 w-full max-w-2xl mx-auto">
 		{Array.from(tagMap.entries()).map(([tag, articles]) => (
-			<div class="bg-gray-800 p-4 rounded-lg">
-			  <h2 class="text-lg font-semibold text-blue-400">{tag}</h2>
+			<div class="p-4">
+			  <h2 class="text-lg font-semibold text-slate-100">{tag}</h2>
 			  <ul class="mt-2">
 				{articles.map(article => (
 				  <li>
-					<a href={`/posts/${article.slug}/`} class="text-white hover:underline">
+					<a href={`/posts/${article.slug}/`} class="article-link-button">
 					  {article.data.title}
 					</a>
 				  </li>

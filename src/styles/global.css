@@ -6,5 +6,37 @@
 }
 
 .link-button{
-    @apply px-4 py-2 text-slate-800 rounded-lg;
+    @apply relative px-4 py-2 text-slate-200 rounded-lg;
+}
+
+.link-button::after{
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300;
+}
+
+.link-button:hover::after{
+    @apply w-full;
+}
+
+.article-link-button{
+    @apply relative pt-1 text-slate-200 rounded-lg;
+}
+
+.article-link-button::after{
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transition-all duration-300;
+}
+
+.article-link-button:hover::after{
+    @apply w-full;
+}
+
+.prose{
+    max-width: 80ch
+}
+
+body {
+  font-family: "Zen Kaku Gothic New", serif;
+  font-weight: 400;
+  font-style: normal;
 }
