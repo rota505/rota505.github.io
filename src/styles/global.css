@@ -36,7 +36,29 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: "Zen Kaku Gothic New", serif;
   font-weight: 400;
   font-style: normal;
+}
+
+/* スクロールバー全体のスタイル */
+::-webkit-scrollbar {
+  width: 8px; /* スクロールバーの幅 */
+}
+
+/* スクロールバーのトラック部分（背景） */
+::-webkit-scrollbar-track {
+  background: #1a1a1a; /* 例: 黒っぽい背景 */
+}
+
+/* スクロールバーのスライダー部分（動く部分） */
+::-webkit-scrollbar-thumb {
+  background: #323436; /* 例: 青系 */
+  border-radius: 4px; /* 角を丸くする */
+}
+
+/* スクロールバーのスライダーにホバーしたとき */
+::-webkit-scrollbar-thumb:hover {
+  background: #404047; /* 例: ちょっと濃い青 */
 }
