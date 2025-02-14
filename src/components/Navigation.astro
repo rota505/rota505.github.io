@@ -1,6 +1,11 @@
+---
+import { Image } from 'astro:assets'
+import logo from '/src/assets/logo2.png'
+---
+
 <div class=nav-link>
     <a href="/" class="link-button">
-        <img src="/src/assets/logo2.png" class="h-12 w-12">
+        <Image src={logo} alt="logo" class="h-12 w-12"/>
     </a>
     <a href="/about/" class="link-button">about</a>
 </div>
